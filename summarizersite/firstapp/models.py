@@ -15,3 +15,15 @@ class Registration(models.Model):
 
     def __str__(self):
         return self.email_id
+
+class Login(models.Model):
+    email_id = models.EmailField(unique=True)
+    password = models.CharField(max_length=15)
+    active_inactive = models.BooleanField()
+
+    class Meta:
+        db_table = "Login"
+        verbose_name_plural = "Login"
+
+    def __str__(self):
+        return self.email_id
