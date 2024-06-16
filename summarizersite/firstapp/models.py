@@ -27,3 +27,15 @@ class Login(models.Model):
 
     def __str__(self):
         return self.email_id
+    
+class Feedback(models.Model):
+    email_id = models.EmailField()
+    rating = models.FloatField()
+    comments = models.TextField()
+
+    class Meta:
+        db_table = "Feedback"
+        verbose_name_plural = "Feedback"
+
+    def __str__(self):
+        return self.email_id
