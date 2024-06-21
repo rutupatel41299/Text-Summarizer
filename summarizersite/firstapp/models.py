@@ -27,6 +27,19 @@ class Login(models.Model):
 
     def __str__(self):
         return self.email_id
+
+class DocumentInfo(models.Model):
+    document_title = models.CharField(max_length=500)
+    document_path = models.CharField(max_length=500)
+    document_type = models.CharField(max_length=100)
+    document_size = models.IntegerField()
+
+    class Meta:
+        db_table = "DocumentInfo"
+        verbose_name_plural = "DocumentInfo"
+
+    def __str__(self):
+        return self.document_title
     
 class Feedback(models.Model):
     email_id = models.EmailField()
