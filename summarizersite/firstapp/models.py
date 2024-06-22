@@ -40,7 +40,21 @@ class DocumentInfo(models.Model):
 
     def __str__(self):
         return self.document_title
-    
+
+class SummaryInfo(models.Model):
+    summary_title = models.CharField(max_length=500)
+    summary_path = models.CharField(max_length=500)
+    summary_type = models.CharField(max_length=100)
+    summary_size = models.IntegerField()
+    Percentage = models.FloatField()
+
+    class Meta:
+        db_table = "SummaryInfo"
+        verbose_name_plural = "SummaryInfo"
+
+    def __str__(self):
+        return self.summary_title
+
 class Feedback(models.Model):
     email_id = models.EmailField()
     rating = models.FloatField()
