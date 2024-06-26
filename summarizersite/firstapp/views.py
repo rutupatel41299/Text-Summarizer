@@ -65,3 +65,14 @@ def login_request(request):
                 return redirect('index')
         except:
             return render(request, 'auth-multi-step-sign-in.html')
+
+def forgotpassword(request):
+    if request.method == 'POST':
+        email_id = request.POST.get('email_id')
+        subject = "Your old password for summarizer"
+        userobj = Login.objects.get(email_id=email_id)
+        message = userobj.password
+        send_mail(subject, message, EMAIL_HOST_USER, [email_id], fail_silently=False)
+        return redirect('login_request')
+    else:
+        return render(request, 'forgotpassword.html')
