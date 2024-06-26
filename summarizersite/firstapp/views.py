@@ -76,3 +76,13 @@ def forgotpassword(request):
         return redirect('login_request')
     else:
         return render(request, 'forgotpassword.html')
+    
+def logout_request(request):
+    try:
+        del request.session['fname']
+        del request.session['lname']
+        del request.session['email_id']
+    except:
+        return redirect('index')
+
+    return redirect('login_request')
