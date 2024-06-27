@@ -86,3 +86,21 @@ def logout_request(request):
         return redirect('index')
 
     return redirect('login_request')
+
+def contact(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        subject = request.POST.get('subject')
+        message = request.POST.get('message')
+        message = email + ' ' + message
+        recepient = 'learn.code.630@gmail.com'
+        print(name, email, subject, message)
+        send_mail(subject, message, EMAIL_HOST_USER, [recepient], fail_silently=False)
+        return render(request, 'contact.html')
+    else:
+        try:
+            if request.session['email_id']:
+                return render(request, 'contact.html')
+        except:
+            return redirect('login_request')
