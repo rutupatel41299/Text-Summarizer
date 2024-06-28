@@ -104,3 +104,10 @@ def contact(request):
                 return render(request, 'contact.html')
         except:
             return redirect('login_request')
+
+def about(request):
+    try:
+        if request.session['email_id']:
+            return render(request, 'about.html')
+    except:
+        return redirect('login_request')
