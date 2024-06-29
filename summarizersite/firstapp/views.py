@@ -132,3 +132,22 @@ def feedback(request):
                 return render(request, 'feedback.html')
         except:
             return redirect('login_request')
+
+def subscribe(request):
+    print(1)
+    if request.method == 'GET':
+        print(2)
+        email_id = request.GET.get('email_id')
+        print(email_id)
+        subject = 'subscription mail'
+        message = 'welcome there!'
+        try:
+            send_mail(subject, message, EMAIL_HOST_USER, [email_id], fail_silently=False)
+        except BadHeaderError:
+            return HttpResponse('Invalid header found.')
+        print(3)
+        return HttpResponseRedirect('index')
+
+    else:
+        print(4)
+        return render(request, 'feedback.html')
