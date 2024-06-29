@@ -111,3 +111,24 @@ def about(request):
             return render(request, 'about.html')
     except:
         return redirect('login_request')
+
+def feedback(request):
+    print(11)
+    if request.method == 'POST':
+        email_id = request.session['email_id']
+        rating = request.POST.get('rating')
+        comments = request.POST.get('comments')
+        print(rating, email_id)
+        print(12)
+        feedbackobj = Feedback(email_id=email_id, rating=rating, comments=comments)
+        try:
+            feedbackobj.save()
+            return render(request, 'feedback.html', {'feedback': 'Thanks For Your Precious Feedback!'})
+        except:
+            return render(request, 'feedback.html')
+    else:
+        try:
+            if request.session['email_id']:
+                return render(request, 'feedback.html')
+        except:
+            return redirect('login_request')
