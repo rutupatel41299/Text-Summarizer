@@ -7,6 +7,15 @@ from django.contrib import messages
 from django.shortcuts import render
 from summarizersite.settings import EMAIL_HOST_USER
 from django.core.mail import send_mail, BadHeaderError
+import PyPDF2
+
+from io import StringIO
+from pdfminer.converter import TextConverter
+from pdfminer.layout import LAParams
+from pdfminer.pdfdocument import PDFDocument
+from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
+from pdfminer.pdfpage import PDFPage
+from pdfminer.pdfparser import PDFParser
 
 def index(request):
     try:
@@ -37,7 +46,7 @@ def register(request):
             return render(request, 'auth-multi-step-sign-up.html')
     else:
         return render(request, 'auth-multi-step-sign-up.html')
-    
+
 def login_request(request):
     if request.method == 'POST':
         email_id = request.POST.get('email_id')
@@ -76,7 +85,7 @@ def forgotpassword(request):
         return redirect('login_request')
     else:
         return render(request, 'forgotpassword.html')
-    
+
 def logout_request(request):
     try:
         del request.session['fname']
@@ -112,6 +121,7 @@ def about(request):
     except:
         return redirect('login_request')
 
+
 def feedback(request):
     print(11)
     if request.method == 'POST':
@@ -133,6 +143,7 @@ def feedback(request):
         except:
             return redirect('login_request')
 
+
 def subscribe(request):
     print(1)
     if request.method == 'GET':
@@ -151,3 +162,143 @@ def subscribe(request):
     else:
         print(4)
         return render(request, 'feedback.html')
+
+
+def summarizer(request):
+    if request.method == 'POST':
+        print(request.method)
+        threshold = int(request.POST['threshold'])
+        pdffile = request.FILES['getFile']
+        pdfname = pdffile.name
+
+        # using pypdf
+        pdfReader = PyPDF2.PdfFileReader(pdffile)
+        pages = pdfReader.numPages
+        userinput = ''
+        for p in range(pages):
+            pageObj = pdfReader.getPage(p)
+            userinput = userinput + pageObj.extractText()
+        print("data which read by pypdf2:------", userinput)
+
+        # using pdfminer
+        # output_string = StringIO()
+        # parser = PDFParser(pdffile)
+        # doc = PDFDocument(parser)
+        # rsrcmgr = PDFResourceManager()
+        # device = TextConverter(rsrcmgr, output_string, laparams=LAParams())
+        # interpreter = PDFPageInterpreter(rsrcmgr, device)
+        # for page in PDFPage.create_pages(doc):
+        #     interpreter.process_page(page)
+        # userinput = output_string.getvalue()
+
+        current_time = datetime.datetime.now()
+        document_title = current_time.strftime("%d-%m-%Y_%H-%M-%S")
+        document_path = 'C:/Users/rutup/PycharmProjects/final_summarizer_project/summarizersite/files/user_documents/'
+
+        try:
+            fh = open(document_path+document_title+'.txt', 'w')
+            fh.write(userinput)
+        except:
+            fh = open(document_path + document_title + '.txt', 'wb')
+            fh.write(userinput.encode('utf8'))
+
+        fh.close()
+        summary, doc_length = main(userinput, threshold)
+        print(summary)
+        summary_title = document_title+'_summary'
+        summary_path = 'C:/Users/rutup/PycharmProjects/final_summarizer_project/summarizersite/files/generated_summaries/'
+        try:
+            percentage = (len(summary)/doc_length)*100
+        except:
+            percentage = None
+        print(percentage)
+
+        try:
+            fhs = open(summary_path + summary_title + '.txt', 'w')
+            for s in summary:
+                fhs.write(s)
+                fhs.write('\n')
+        except:
+            fhs = open(summary_path + summary_title + '.txt', 'wb')
+            for s in summary:
+                fhs.write(s.encode('utf8'))
+                fhs.write(b"\n")
+        docobj = DocumentInfo(document_title=document_title, document_path=document_path, document_type='text', document_size=doc_length)
+        summaryobj = SummaryInfo(summary_title=summary_title, summary_path=summary_path, summary_type='text', summary_size=len(summary), Percentage=percentage)
+        s = ' '.join(summary)
+
+        try:
+            docobj.save()
+            summaryobj.save()
+            return render(request, 'summarizer.html', {'summary': s})
+        except:
+            return render(request, 'summarizer.html')
+    else:
+        print(request.method)
+        try:
+            if request.session['email_id']:
+                return render(request, 'summarizer.html')
+        except:
+            return redirect('login_request')
+
+
+def summarizer1(request):
+    if request.method == 'POST':
+        print(request.method)
+        threshold = int(request.GET['threshold'])
+        if request.GET['directinput']:
+            directinput = request.GET['directinput']
+        else:
+            directinput = request.GET['pdfdata']
+
+        print("data which read by javascript:------", directinput)
+        userinput = directinput
+
+        current_time = datetime.datetime.now()
+        document_title = current_time.strftime("%d-%m-%Y_%H-%M-%S")
+        document_path = 'C:/Users/rutup/PycharmProjects/final_summarizer_project/summarizersite/files/user_documents/'
+
+        try:
+            fh = open(document_path+document_title+'.txt', 'w')
+            fh.write(userinput)
+        except:
+            fh = open(document_path + document_title + '.txt', 'wb')
+            fh.write(userinput.encode('utf8'))
+
+        fh.close()
+        summary, doc_length = main(userinput, threshold)
+        print(summary)
+        summary_title = document_title+'_summary'
+        summary_path = 'C:/Users/rutup/PycharmProjects/final_summarizer_project/summarizersite/files/generated_summaries/'
+        try:
+            percentage = (len(summary)/doc_length)*100
+        except:
+            percentage = None
+        print(percentage)
+
+        try:
+            fhs = open(summary_path+summary_title+'.txt', 'w')
+            for s in summary:
+                fhs.write(s)
+                fhs.write('\n')
+        except:
+            fhs = open(summary_path + summary_title + '.txt', 'wb')
+            for s in summary:
+                fhs.write(s.encode('utf8'))
+                fhs.write(b"\n")
+        docobj = DocumentInfo(document_title=document_title, document_path=document_path, document_type='text', document_size=doc_length)
+        summaryobj = SummaryInfo(summary_title=summary_title, summary_path=summary_path, summary_type='text', summary_size=len(summary), Percentage=percentage)
+
+        try:
+            docobj.save()
+            summaryobj.save()
+            return HttpResponse(summary)
+        except:
+            return render(request, 'summarizer.html')
+    else:
+        print(request.method)
+        try:
+            if request.session['email_id']:
+                return render(request, 'summarizer.html')
+        except:
+            return redirect('login_request')
