@@ -25,3 +25,27 @@ def natural_language_processing(data):
     doc = nlp(data)
     print('processed data: ', doc)
     return doc
+
+# stopping and stemming of data which came from natural_language_processing()
+def stopstem(doc):
+    # stopping and stemming
+    filtered_tokens = []
+    for token in doc:
+        if not token.is_stop:
+            filtered_tokens.append(token.lemma_)
+
+    res = []
+    for ele in filtered_tokens:
+        if ele.strip():
+            res.append(ele)
+
+    filtered_tokens = res
+
+    print('list of tokens after stopping and stemming: ', filtered_tokens)
+    print()
+
+    text_stopped = ' '.join(filtered_tokens)
+    doc_stopped = nlp(text_stopped)
+    print('stemmed and stopped document: ', doc_stopped)
+    print()
+    return filtered_tokens, doc_stopped
