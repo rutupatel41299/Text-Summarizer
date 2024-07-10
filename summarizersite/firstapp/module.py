@@ -49,3 +49,19 @@ def stopstem(doc):
     print('stemmed and stopped document: ', doc_stopped)
     print()
     return filtered_tokens, doc_stopped
+
+# generation of part of speech tagging dictionary with word frequency on the basis of data from stopstem()
+def pos_counting(filtered_tokens, doc_stopped):
+    word_freq = dict()
+    for token in filtered_tokens:
+        word_freq[token] = word_freq.get(token, 0) + 1
+
+    pos_dict = dict()
+    for token in doc_stopped:
+        if token.pos_ in pos_dict:
+            pos_dict[token.pos_][token.text] = word_freq[token.text]
+        else:
+            pos_dict[token.pos_] = dict()
+            pos_dict[token.pos_][token.text] = word_freq[token.text]
+    print('part of speech dictionary:', pos_dict)
+    return pos_dict
