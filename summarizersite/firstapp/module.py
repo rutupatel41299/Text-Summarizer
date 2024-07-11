@@ -65,3 +65,17 @@ def pos_counting(filtered_tokens, doc_stopped):
             pos_dict[token.pos_][token.text] = word_freq[token.text]
     print('part of speech dictionary:', pos_dict)
     return pos_dict
+
+# processing of actual data again for generating list of sentences for generating summary
+def sentence_list(data1):
+    pun = '\t' + '!"#$%&' + '()*+,-/:;<=>?@[\]^_`{|}~—' + '‘’' + '\n' + '\r' + '\r\n' + '\v' + '\x0b' + '\f' + '\x0c' + '\x1c' + '\x1d' + '\x1e' + '\x85' + '\u2028' + '\u2029'
+    for sym in pun:
+        cnt = data1.count(sym)
+        data1 = data1.replace(sym, '', cnt)
+
+    doc1 = nlp(data1)
+    sentences = list(doc1.sents)
+
+    for s in sentences:
+        print(s)
+    return sentences
