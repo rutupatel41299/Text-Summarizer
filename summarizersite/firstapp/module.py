@@ -79,3 +79,33 @@ def sentence_list(data1):
     for s in sentences:
         print(s)
     return sentences
+
+# fetching unique words from part of speech tagging dictionary on the basis of sentences in actual data
+def unique_word_fetch(doc_length, pos_dict):
+    # threshold selection
+    threshold = 0
+    if doc_length >= 3 and doc_length <= 7:
+        threshold = 2
+    elif doc_length >= 8 and doc_length <= 15:
+        threshold = 4
+    elif doc_length >= 16 and doc_length <= 22:
+        threshold = 6
+    elif doc_length >= 22 and doc_length <= 30:
+        threshold = 8
+    elif doc_length >= 30:
+        threshold = 10
+
+    considered_pos = ['ADV', 'CONJ', 'NOUN', 'PRON', 'PROPN', 'X']
+
+    unique_words = list()
+
+    if threshold == 0:
+        return unique_words
+
+    for posn in pos_dict:
+        if posn in considered_pos:
+            for word in pos_dict[posn]:
+                if pos_dict[posn][word] >= threshold:  # how to select that threshold is a problem
+                    unique_words.append(word)
+    print('unique words: ', unique_words)
+    return unique_words
