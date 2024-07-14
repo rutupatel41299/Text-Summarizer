@@ -109,3 +109,29 @@ def unique_word_fetch(doc_length, pos_dict):
                     unique_words.append(word)
     print('unique words: ', unique_words)
     return unique_words
+
+# generating summary based on unique words from unique_word_fetch() and sentences from sentence_list()
+def summary_generation(sentences, unique_words):
+    summary = list()
+    keyword_count = dict()
+    ind = 0
+    for sen in sentences:
+        sent = str(sen)
+        sent_lower = sent.lower()
+        flag = 0
+        cnt = 0
+        for word in unique_words:
+            if word in sent_lower:
+                cnt = cnt + 1
+            if word in sent_lower and flag == 0:
+                flag = flag + 1
+                summary.append(sent)
+        if cnt != 0:
+            keyword_count[ind] = cnt
+            ind = ind + 1
+    print(keyword_count)
+
+    for s in summary:
+        print(s)
+    print('length of summary', len(summary))
+    return summary, keyword_count
