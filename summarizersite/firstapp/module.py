@@ -135,3 +135,22 @@ def summary_generation(sentences, unique_words):
         print(s)
     print('length of summary', len(summary))
     return summary, keyword_count
+
+# option when actual algorithm cant find unique words
+def unique_word_fetch1(doc_stopped):
+    considered_pos = ['ADV', 'CONJ', 'NOUN', 'PRON', 'PROPN', 'X']
+
+    keyword = []
+    for token in doc_stopped:
+        if token.pos_ in considered_pos:
+            keyword.append(token.text)
+    print(keyword)
+
+    unique_words1 = list()
+    freq_word = Counter(keyword)
+    print(freq_word)
+    for token, i in freq_word.most_common(4):
+        unique_words1.append(token)
+
+    print(unique_words1)
+    return unique_words1
