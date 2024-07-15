@@ -154,3 +154,44 @@ def unique_word_fetch1(doc_stopped):
 
     print(unique_words1)
     return unique_words1
+
+def main(main_data, th_percentage):
+    doc = natural_language_processing(main_data)
+    filtered_tokens, doc_stopped = stopstem(doc)
+    pos_dict = pos_counting(filtered_tokens, doc_stopped)
+    sentences = sentence_list(main_data)
+    doc_length = len(sentences)
+    unique_words = unique_word_fetch(doc_length, pos_dict)
+    if len(unique_words) == 0:
+        unique_words =unique_word_fetch1(doc_stopped)
+    summary, keyword_count = summary_generation(sentences, unique_words)
+    percentage = (len(summary) / doc_length) * 100
+
+    if th_percentage == 0 or th_percentage >= percentage:
+        new_summary = summary
+    else:
+        priority = {k: v for k, v in sorted(keyword_count.items(), key=lambda item: item[1], reverse=True)}
+        print(priority)
+
+        sent_cnt = int((th_percentage * doc_length) / 100)
+        print(sent_cnt)
+
+        priority_list = list(priority.keys())
+        print(priority_list)
+
+        new_summary_sent_num = list()
+        for i in range(sent_cnt):
+            new_summary_sent_num.append(priority_list[i])
+        new_summary_sent_num.sort()
+        print(new_summary_sent_num)
+
+        new_summary = list()
+        for i in new_summary_sent_num:
+            new_summary.append(summary[i])
+        print(new_summary)
+
+    print('length of given data: ', doc_length)
+    print('length of generated summary: ', len(new_summary))
+    print('+++', new_summary)
+    return new_summary, doc_length
+
