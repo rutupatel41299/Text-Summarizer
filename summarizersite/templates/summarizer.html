@@ -1,0 +1,345 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Summarizer</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="{% static 'css1/animate.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css1/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css1/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css1/magnific-popup.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css1/bootstrap-datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css1/jquery.timepicker.css' %}">
+
+
+    <link rel="stylesheet" href="{% static 'css1/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css1/style.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/summarizer.css' %}">
+	<link href="https://kit-pro.fontawesome.com/releases/v5.15.2/css/pro.min.css" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/1.10.100/pdf.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.worker.entry.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/1.10.100/pdf.worker.min.js" ></script>
+</head>
+
+<body style="background: url('{% static "images/BG2.png" %}'); background-size:100% 618px; background-repeat: no-repeat;">
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+<div class="container">
+        <a class="navbar-brand" href="/index">Summarizer</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+        </button>
+
+    <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a href="/index" class="nav-link">Home</a></li>
+            <li class="nav-item active"><a href="/summarizer" class="nav-link">Summarizer</a></li>
+            <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
+            <li class="nav-item"><a href="/feedback" class="nav-link">Feedback</a></li>
+           {% if request.session.fname %}
+                <li class="nav-item"><a class="nav-link">{{ request.session.fname }}{{ request.session.lname }}</a></li>
+                <li class="nav-item"><a href="/logout_request" class="nav-link">Log out</a></li>
+           {% else %}
+                <li class="nav-item"><a href="/register" class="nav-link">Sign up</a></li>
+                <li class="nav-item"><a href="/" class="nav-link">Log in</a></li>
+           {% endif %}
+        </ul>
+    </div>
+</div>
+</nav>
+<!-- END nav -->
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+<div class="box">
+    <div class="heading">
+        <div style="font-weight: bold; color: #FFFF;">Summarizer</div>
+    </div>
+    <!-- <div class="txt">
+        <div class="textheading">Enter the Text</div>
+        <textarea name="" id="" cols="20" rows="20" placeholder="Start writting from here.."></textarea>
+    </div> -->
+    <div style="
+        height: 400px;
+        width: 60%;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-items: center;
+        background-color: #404040;
+        border-radius: 35px;">
+        <div class="textheading" style="align-self: center; color: #FFFF;">Enter Text</div>
+        <div class="child">
+            <textarea name="directinput" id="directinput" cols="5" rows="5" placeholder="Start writing from here.." style="padding-bottom: 114px;"></textarea>
+            <div style="display: flex; justify-content: flex-end; padding-top: 10px;">
+                <div class="inputbottom" style="align-items: center"><div style="margin-left: 1rem; margin-right: 1rem; align-self: center; color: #000;">Threshold</div>
+                    <div class="tooltip1">
+                        <span class="tooltiptext1" id="tooltiptext1" style="left:calc(6% - 50px);">0%</span>
+                        <input type="range" name="threshold" id="threshold" value="0" style="opacity:1;" onchange="rangeValFunc(this.value);">
+                    </div>
+                </div>
+            <input type="button" value="Summarize" name="btn_submit" id="btn_submit" onclick="pdforcontent()" style="justify-self: flex-end; outline: none; margin-right: 1rem; background: #000000; border-radius: 9px; color: #FFFF; width: 105px; height: 35px; font-family: Poppins; font-style: normal; font-weight: 600;">
+            </div>
+        </div>
+    </div>
+    <div class="pdf" style="color: #000;">
+        <div style="font-family: Poppins;
+                font-style: normal;
+                font-weight: bold;">OR</div>
+        <div style="font-family: Poppins;
+                font-style: normal;
+                font-weight: bold;">Give us a PDF </div>
+            <!-- <div class="pdfbox" style="display: flex; justify-content: space-evenly;align-items: center;">
+            <i class="fas fa-folder-minus" style="font-size: 1.3rem;"></i>
+            <div>Open</div>
+            </div> -->
+            <!-- <input type="file"> -->
+<!--        <button style="display:block;width:100px; height:35px; outline: none; background: #EAEAEA;font-family: Poppins;font-style: normal;font-weight: bold;" onclick="document.getElementById('getFile').click()"><i class="fas fa-folder-minus" style="font-size: 1.3rem;margin-right: 5px;"></i> Open</button>-->
+        <input type="file" id="getFile" name="getFile" style="">
+<!--        <input type="button" value="Summarize" name="" id="" onclick="ExtractText()">-->
+        <button type="submit" onclick="checkpdf()" class="btn" style="outline: none;"><i class="far fa-chevron-right" style="font-size: 1rem;color: #FFFF;"></i></button>
+    </div>
+    <div class="result">
+        <div style="font-weight: bold; margin-top: 0.7rem; color: #000;">Results</div>
+        <p name="result" id="summary" style="text-align: justify; padding: 0 20px; color: #000;">{{summary}} </p>
+        <div class="down">
+            <button type="button" onclick="printdiv()" class="btn" style="outline: none; color: #FFFF; display: flex; left: 75%;"><i class="fas fa-file-download" style="margin-right: 10%"></i>Download</button>
+        </div>
+    </div>
+</div>
+</form>
+<!--<div class="down">-->
+<!--    <button type="submit" onclick="printdiv()" class="btn" style="outline: none; color: #FFFF; display: flex; left: 75%;"><i class="fas fa-file-download" style="margin-right: 10%"></i>Download</button>-->
+<!--</div>-->
+
+<script>
+function rangeValFunc(rangeVal){
+    var rangeWidth = document.getElementById("tooltiptext1").textContent = rangeVal+"%";
+    document.getElementById("tooltiptext1").style.left = "calc("+rangeVal+"% - 50px)";
+}
+
+function printdiv(){
+    var divContents = document.getElementById("summary").innerHTML;
+    var a = window.open('', '', 'height=500, width=500');
+    a.document.write(divContents);
+    a.document.close();
+    a.print();
+<!--    window.location.replace("http://127.0.0.1:8000/summarizer/");-->
+}
+
+function pdforcontent(){
+    if (Checkfiles() == true){
+        ExtractText();
+    }
+    else{
+        getsummary();
+    }
+}
+
+function getsummary(){
+    var threshold = document.getElementById("threshold").value;
+    var directinput = document.getElementById("directinput").value;
+    directinput = directinput.replace(/;/g, ",");
+    directinput = directinput.replace(/&/g, "and");
+    var getFile = document.getElementById("getFile").value;
+    var url = "/summarizer1/?directinput="+directinput+"&threshold="+threshold;
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("summary").innerHTML=this.responseText;
+    }
+  };
+  xhttp.open("POST", url, true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  //alert("send"+url);
+  xhttp.send();
+}
+
+function Checkfiles()
+{
+    var fup = document.getElementById('getFile');
+    var directinput = document.getElementById("directinput").value;
+
+    var fileName = fup.value;
+    var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
+    if(ext == "pdf" )
+    {
+        return true;
+    }
+    else if (directinput.length != 0){
+        return false;
+    }
+    else
+    {
+        alert("Upload pdf files only or write any data");
+        return false;
+    }
+}
+
+function checkpdf()
+{
+    var fup = document.getElementById('getFile');
+
+    var fileName = fup.value;
+    var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
+    if(ext == "pdf" )
+    {
+        return true;
+    }
+    else
+    {
+        alert("Upload pdf files only or write any data");
+        return false;
+    }
+}
+
+var datass = '';
+var DataArr = [];
+PDFJS.workerSrc = '';
+
+function ExtractText() {
+    var input = document.getElementById("getFile");
+    var fReader = new FileReader();
+    fReader.readAsDataURL(input.files[0]);
+    // console.log(input.files[0]);
+    fReader.onloadend = function (event) {
+        convertDataURIToBinary(event.target.result);
+    }
+}
+
+var BASE64_MARKER = ';base64,';
+
+function convertDataURIToBinary(dataURI) {
+
+    var base64Index = dataURI.indexOf(BASE64_MARKER) + BASE64_MARKER.length;
+    var base64 = dataURI.substring(base64Index);
+    var raw = window.atob(base64);
+    var rawLength = raw.length;
+    var array = new Uint8Array(new ArrayBuffer(rawLength));
+
+    for (var i = 0; i < rawLength; i++) {
+        array[i] = raw.charCodeAt(i);
+    }
+    pdfAsArray(array);
+
+}
+
+function getPageText(pageNum, PDFDocumentInstance) {
+    // Return a Promise that is solved once the text of the page is retrieven
+    return new Promise(function (resolve, reject) {
+        PDFDocumentInstance.getPage(pageNum).then(function (pdfPage) {
+            // The main trick to obtain the text of the PDF page, use the getTextContent method
+            pdfPage.getTextContent().then(function (textContent) {
+                var textItems = textContent.items;
+                var finalString = "";
+
+                // Concatenate the string of the item to the final string
+                for (var i = 0; i < textItems.length; i++) {
+                    var item = textItems[i];
+
+                    finalString += item.str + " ";
+                }
+
+                // Solve promise with the text retrieven from the page
+                resolve(finalString);
+            });
+        });
+    });
+}
+
+function pdfAsArray(pdfAsArray) {
+
+    PDFJS.getDocument(pdfAsArray).then(function (pdf) {
+
+        var pdfDocument = pdf;
+        // Create an array that will contain our promises
+        var pagesPromises = [];
+
+        for (var i = 0; i < pdf.pdfInfo.numPages; i++) {
+            // Required to prevent that i is always the total of pages
+            (function (pageNumber) {
+                // Store the promise of getPageText that returns the text of a page
+                pagesPromises.push(getPageText(pageNumber, pdfDocument));
+            })(i + 1);
+        }
+
+        // Execute all the promises
+        Promise.all(pagesPromises).then(function (pagesText) {
+
+            // Display text of all the pages in the console
+            // e.g ["Text content page 1", "Text content page 2", "Text content page 3" ... ]
+            console.log(pagesText); // representing every single page of PDF Document by array indexing
+            console.log(pagesText.length);
+            var outputStr = "";
+            var c = "";
+            for (var pageNum = 0; pageNum < pagesText.length; pageNum++) {
+                console.log(pagesText[pageNum]);
+                outputStr = "";
+                outputStr = "<br/><br/>Page " + (pageNum + 1) + " contents <br/> <br/>";
+
+                // var div = document.getElementById('output');
+
+                // document.getElementById('output').innerHTML += (outputStr + pagesText[pageNum]);
+
+                c = c + pagesText[pageNum];
+            }
+            getsummary1(c);
+
+        });
+
+    }, function (reason) {
+        // PDF loading error
+        console.error(reason);
+    });
+}
+
+function getsummary1(c){
+    var threshold = document.getElementById("threshold").value;
+    var pdfdata = c;
+    var url = "/summarizer1/?pdfdata="+pdfdata+"&threshold="+threshold+"&directinput=";
+    pdfdata = pdfdata.replace(/;/g, ",");
+    pdfdata = pdfdata.replace(/&/g, "and");
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("summary").innerHTML=this.responseText;
+    }
+  };
+
+  xhttp.open("POST", url, true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  //alert("send"+url)
+  xhttp.send();
+}
+
+</script>
+
+<script src="{% static 'js1/jquery.min.js' %}"></script>
+<script src="{% static 'js1/jquery-migrate-3.0.1.min.js' %}"></script>
+<script src="{% static 'js1/popper.min.js' %}"></script>
+<script src="{% static 'js1/bootstrap.min.js' %}"></script>
+<script src="{% static 'js1/jquery.easing.1.3.js' %}"></script>
+<script src="{% static 'js1/jquery.waypoints.min.js' %}"></script>
+<script src="{% static 'js1/jquery.stellar.min.js' %}"></script>
+<script src="{% static 'js1/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js1/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'js1/jquery.animateNumber.min.js' %}"></script>
+<script src="{% static 'js1/bootstrap-datepicker.js' %}"></script>
+<script src="{% static 'js1/scrollax.min.js' %}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src="{% static 'js1/google-map.js' %}"></script>
+<script src="{% static 'js1/main.js' %}"></script>
+
+</body>
+</html>
