@@ -1,0 +1,120 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Feedback</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="{% static 'css1/animate.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css1/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css1/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css1/magnific-popup.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css1/bootstrap-datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css1/jquery.timepicker.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css1/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css1/style.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/feedback1.css' %}">
+	<link href="https://kit-pro.fontawesome.com/releases/v5.15.2/css/pro.min.css" rel="stylesheet">
+</head>
+<body style="background: url('{% static "images/BG1.png" %}'); background-size:100% 87%; background-repeat: no-repeat;">
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+<div class="container">
+        <a class="navbar-brand" href="/index">Summarizer</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+        </button>
+
+    <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a href="/index" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="/summarizer" class="nav-link">Summarizer</a></li>
+            <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
+            <li class="nav-item active"><a href="/feedback" class="nav-link">Feedback</a></li>
+           {% if request.session.fname %}
+                <li class="nav-item"><a class="nav-link">{{ request.session.fname }}{{ request.session.lname }}</a></li>
+                <li class="nav-item"><a href="/logout_request" class="nav-link">Log out</a></li>
+           {% else %}
+                <li class="nav-item"><a href="/register" class="nav-link">Sign up</a></li>
+                <li class="nav-item"><a href="/" class="nav-link">Log in</a></li>
+           {% endif %}
+        </ul>
+    </div>
+</div>
+</nav>
+<div class="box">
+		<div class="heading">
+			<div>Provide Your Feedback</div>
+<!--			<div>is Crucial !</div>-->
+		</div>
+    <form method="post">
+    {% csrf_token %}
+		<div class="feedback">
+            {% if feedback %}
+                <div style="font-size: 34px; font-weight: 600;">
+                    {{feedback}}
+                </div>
+            {% else %}
+			<div class="rateheading">Rate Our Services.</div>
+			<fieldset class="rating" style="align-self: center">
+				<input type="radio" id="star5" name="rating" value="5.0" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                <input type="radio" id="star4half" name="rating" value="4.5" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+                <input type="radio" id="star4" name="rating" value="4.0" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                <input type="radio" id="star3half" name="rating" value="3.5" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+                <input type="radio" id="star3" name="rating" value="3.0" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                <input type="radio" id="star2half" name="rating" value="2.5" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+                <input type="radio" id="star2" name="rating" value="2.0" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                <input type="radio" id="star1half" name="rating" value="1.5" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+                <input type="radio" id="star1" name="rating" value="1.0" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                <input type="radio" id="starhalf" name="rating" value="0.5" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+            </fieldset>
+            <textarea name="comments" id="comments" cols="30" rows="7" placeholder="Add a Comment" style="background-color: #EBEBEB"></textarea>
+            <button style="width: 100px; height: 50px; align-self: center" type="submit">Submit</button>
+            {% endif %}
+        </div>
+    </form>
+<!--    <form method="get" onsubmit="return get_subscription()">-->
+<!--        {% csrf_token %}-->
+<!--        <div class="bottom">-->
+<!--         &lt;!&ndash; <div style="color: white;justify-self: center;align-self: center;" class="emailupdates">Enter Your E-mail here to get Updates</div> &ndash;&gt;-->
+<!--            <input type="email" name="email_id" id="email_id" placeholder="Enter Your E-mail here to get Updates" style="background-color: #0000;">-->
+<!--            <input type="submit" class="btn"><i class="far fa-chevron-right"></i></input>-->
+<!--        </div>-->
+<!--    </form>-->
+        </div>
+
+<script>
+function get_subscription()
+{
+    var email_id = document.getElementById("email_id").value;
+    alert(email_id);
+    var url = "/subscribe/?email_id="+email_id;
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function()
+    {
+        if (this.readyState == 4)
+        {
+            document.getElementById("email_id").innerHTML=this.responseText;
+            console.log(this.responseText);
+        }
+    };
+    xhttp.open("GET", url, true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send();
+}
+</script>
+
+
+</body>
+</html>
