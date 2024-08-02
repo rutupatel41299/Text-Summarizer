@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body{
+    /* background: url(BG2.png) ; */
+    background-size:100% 63%;
+    background-repeat: no-repeat;
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.heading{
+    justify-content: center;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 96px;
+    text-align: center;
+    margin-top: 4%;
+}
+.txt{
+    background-color: #404040;
+    width: 890px;
+    height: 275px;
+    border-radius: 20px;
+    text-align: center;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-around; */
+}
+.textheading{
+    font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 27px;
+  align-self: center; 
+  color: #FFFF;
+  margin: 0.5rem 0;
+}
+
+.child{
+  background-color: #FFFF;
+  border-radius: 30px;
+  height: 95%;
+  width: 100%;
+}
+
+textarea { 
+    outline: none !important;
+    border-radius: 20px;
+    /* padding: 25px; */
+    width: 100%;
+    padding: 20px;
+    border-width: 0px;
+    resize: none;
+    /*padding-bottom: 114px;*/
+}
+
+textarea::placeholder{
+  /* padding-left: 30px; */
+  font-family: Poppins;
+font-style: normal;
+font-weight: 600;
+/* font-size: 18px;
+line-height: 27px; */
+}
+
+.inputbottom{
+background: #F0F0F0;
+border-radius: 9px;
+width: 30%;
+display: flex;
+margin-right: 1rem;
+font-family: Poppins;
+font-style: normal;
+font-weight: 600;
+}
+
+input[type=range]::range-track {
+  width: 100%;
+  height: 20px;
+  border-radius: 10px;
+  background-color: #eee;
+  border: 2px solid #ccc;
+}
+
+input[type=range]::range-thumb {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-color: white;
+  border: 2px solid #1976D2;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+}
+
+input[type=range]::range-progress {
+  height: 20px;
+  border-radius: 10px 0 0 10px;
+  background-color: #2196F3;
+  border: 2px solid #1976D2;
+}
+
+input[type=submit]{
+  background: #000000;
+border-radius: 9px;
+color: #FFFF;
+width: 90px;
+    height: 35px;
+    font-family: Poppins;
+font-style: normal;
+font-weight: 600;
+}
+
+.pdf{
+  background-color: #FFFF;
+  display: flex;
+  margin-top: 3%;
+  width: 375px;
+  height: 55px;
+  border-radius: 20px;
+  text-align: center;
+  justify-content: space-around;
+  align-items: center;
+  font-family: Poppins;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.pdfbox{
+  height: 35px;
+  width: 100px;
+  background-color: #EAEAEA;
+  border-radius: 15px;
+  font-style: normal;
+}
+.pdf button{
+      width: 42px;
+    height: 35px;
+    background: #4986FC;
+    border-radius: 15px;
+    align-self: center;
+    border: none;
+}
+.result{
+  height: fit-content;
+  width: 60%;
+  text-align: center;
+  background-color: #EEEEEE;
+  margin-top: 3%;
+  border-radius: 15px;
+  font-family: Poppins;
+  font-size: 15px;
+}
+.down button{
+  font-family: Poppins;
+   width: 130px;
+    height: 35px;
+    background: #4986FC;
+    border-radius: 15px;
+    align-self: center;
+    border: none;
+    position: relative;
+    left: 75%;
+    top: 15px;
+    display: flex;
+}
+
+i {
+  font-size: 1.3rem;
+}
+
+.tooltip1 {
+  position:relative;
+}
+.tooltip1 .tooltiptext1 {
+  visibility: hidden;
+  width: 100px;
+  background-color: #f38080;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  top:-30px;
+  left:calc(6% - 50px);
+}
+
+.tooltip1:hover .tooltiptext1 {
+  visibility: visible;
+  
+}
+
+.tooltip1 .tooltiptext1::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #f38080 transparent transparent transparent;
+}
