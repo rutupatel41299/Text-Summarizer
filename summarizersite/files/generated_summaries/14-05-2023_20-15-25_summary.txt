@@ -1,0 +1,4 @@
+Computer science is the study of computers and computational systems.
+Computer scientists use various mathematical algorithms coding procedures and their expert programming skills to study computer processes and develop new software and systems.
+How is Computer Science Different from ITComputer science focuses on the development and testing of software and software systems.
+Principal areas of study and careers within computer science include artificial intelligence computer systems and networks security database systems humancomputer interaction vision and graphics numerical analysis programming languages software engineering bioinformatics and theory of computing.

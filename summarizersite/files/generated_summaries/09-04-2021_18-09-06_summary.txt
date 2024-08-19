@@ -1,0 +1,13 @@
+ManagerAI Programming with PythonTime to CompletionPrerequisitesIntro to Machine Intro to Machine Learning with LearningPyTorchIntro to Machine Learning with TensorFlowAI for Trading Deep LearningMachine
+DevelopersRENNIGEBETAIDEMRETNIDECNAVDA4 Months at 1015 hrsweekPython
+Probability Machine
+Deep Learning3 Months at 1015
+Statistics Machine Learning  
+Deep Learning3 Months at 10 hrsweekBasic
+Programming6 Months at 10 hrsweekPython  
+Mathematics4 Months at 12 hrsweekBasic Python3 Months at 10 hrsweekIntermediate Python and Machine Learning Algorithms4 Months at 10 hrsweekPython  
+Basic Algebra3 Months at 10 hrsweekPython3 Months at 1215 hrsweekAlgebra Calculus Statistics  
+Python3 Months at 10 hrsweekIntermediate Python and Experience with Deep Learning Command Line and OpenCV2 Months at 510 hrsweekNo Experience
+Required3 Months at 10 hrsweekPython3 Months at 10 hrsweekPython3 Months at 1015 hrsweekPython
+Statistics Machine Learning  
+Deep Learning4 Months at 15 hrsweekIntermediate Python Experience with Machine Learning 

@@ -1,0 +1,26 @@
+slipups critics say are merely surface lapsessignsthat the softwares developers were too rushed or too careless tofix obvious defects.
+The real problems lie in softwares basicdesign according to R. A. Downes of Radsoft a software consulting firm.
+Microsofts popularVisual Studio programming software is an example to Downessway of thinking.
+Nor is Microsoftsoftware especially flawed critics often employ the companysproducts as examples more because they are familiar thanbecause
+Instead in Wallachs view theblooming buzzing confusion in Visual Studio and so manyother programs betrays how the techniques for writing softwarehave failed to keep up with the explosive increase in its complexity.
+Programmers write code in languages such as Java C andC   which can be read by human beings.
+TODAY IS THAT YOU CAN WRITE ANY SLOPPYPIECE OF CODE
+Aid for Faulty CodeSoftware quality has been so bad for so longsome engineers argue that the only solutionsare litigation and legislation.
+More optimisticobservers believe that industry is slowlybeginning to adopt new practices and technological tools for making better software.
+Engineers whodevelop code dont look at software in thesame way as the system administrators whomaintain it the marketers who sell it or theend users who put it to work.
+Yet says SteveMcConnell of Construx Software developmentteams rarely account for these diverse perspectives. Involving colleagues like businessmanagers administrators customer supportagents and user interface experts in softwaredesign meetings
+Incredibly the purpose of newsoftware is often not clearly spelled outbefore programmers begin writing it.
+According to software quality trainersJim and Michele McCarthy one of the keys toimproving software is for all parties to reachan agreement in advance on what theyredoing“a single explicit universallyaccepted focus.
+Under the Kestrel Institutes“correct by construction” approach programmers carefully design and assemblesoftware modules using special programming tools that prevent errors such asbuffer overflows.
+Similarly recentimprovements in Java compilers havehelped automate the process of weedingout common problems in Java code.
+According to AmitabhSrivastava of Microsoft improvementswill also come from new tools that meticulously tally changes in software code allowing testers to focus on heavily rewritten sections that may contain moreerrors.
+These and other similar changeshe says will reverse the now prevalentapproach of slapping components togetherby inspiration in offices full of pizza boxes andMountain Dew.known as “compilers” transform this code into the strings of onesand zeroes used by computers.
+Importantly compilers refuse tocompile code with obvious problemsthey spit out error
+Not wantingerrors to cause delay coderswho in the early days tended tobe trained as mathematicians or physicistsstayed late in theiroffices exhaustively checking their work.
+Writing software wasmuch like writing scientific papers.
+Instead of meticulously planning code programmers stayed upin caffeinated allnight hacking sessions constantly bouncingresults off the compiler.
+Again and again the compiler would spitback error messages the programmers would fix the mistakesone by one until the software compiled properly.
+“The attitudetoday is that you can write any sloppy piece of code and the compiler will run diagnostics” says SRIs Neumann.
+programs grew in size and complexity however thelimits of this “code and fix” approach became evident.
+Onaverage professional coders make 100 to 150 errors in everythousand lines of code they write according to a multiyear studyof 13000 programs by Humphrey of Carnegie Mellon.
+UsingHumphreys figures the business operating system Windows NT4 with its 16 million lines of code would thus have been written with about two million mistakes.

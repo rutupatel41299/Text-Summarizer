@@ -1,0 +1,5 @@
+Data science is considered a discipline while data scientists are the practitioners within that field.
+Data scientists are not necessarily directly responsible for all the processes involved in the data science lifecycle.
+Data scientist responsibilities can commonly overlap with a data analyst particularly with exploratory data analysis and data visualization.
+However a data scientists skillset is typically broader than the average data analyst.
+To perform these tasks data scientists require computer science and pure science skills beyond those of a typical business analyst or data analyst.

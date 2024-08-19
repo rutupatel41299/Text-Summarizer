@@ -1,0 +1,6 @@
+Machine  learning  is  an  application  of  artificial  intelligence  
+the  ability  to  automatically  
+Machine  learning  focuses  on  the  development  of computer programs that can access data and use it to learn for themselves.
+learn  automatically without  human  
+But  using  the  classic  algorithms  of  machine  learning  text  
+is  considered  as  a sequence of keywords instead an approach based on semantic analysis mimics the human ability to understand the meaning of a text.  

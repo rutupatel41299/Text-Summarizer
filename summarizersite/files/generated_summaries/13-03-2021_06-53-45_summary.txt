@@ -1,0 +1,1 @@
+Natural Language Processing NLP is basically how you can teach machines to understand human languages and extract meaning from text.

@@ -1,0 +1,199 @@
+Breast Cancer detection Using Convolutional Neural Networks for Mammogram Imaging System Y. J. Tan K. S. Sim and F. F. Ting Faculty of Engineering  Technology Multimedia University Jalan Ayer
+In this paper breast cancer detection using convolutional neural network for mammogram imaging system is proposed to classify mammogram image into normal benignnoncancerous abnormality and malignant cancerous abnormality.
+Breast Cancer detection Using Convolutional Neural Networks BCDCNN is aimed to speed up the diagnosis process by assisting specialist to diagnosis and classification the breast cancer.
+A series of mammogram images are used to carry out  preprocessing to convert a human visual image into a computer visual image and adjust suitable parameter for the CNN classifier.
+After that all changed images are assigned into CNN classifier as training source.
+The CNN classifier will then produce a model to recognize the mammogram image.
+By comparing BCDCNN method with Mammogram Classification Using Convolutional Neural Networks MCCNN BCDCNN has improved the accuracy toward classification on the mammogram images.
+Thus the results show that the proposed method has higher accuracy than other existing methods mass only and all argument have been increased from 0.75 to 0.8585 and 0.608974 to 0.8271 accuracy.
+I.  INTRODUCTION Breast cancer is an important risk that must be concerned by everyone around the world.
+With almost 1.7 million new cases diagnosed in 2012 breast cancer is the most common form of cancer around the world 1.
+In 2017 estimated 252710 new invasive breast cancer cases will be developed in women along with 63410 of noninvasive breast cancer case and 40610 case breast cancer deaths 2.
+There are many breast cancer risk factors such as family history medical history and age.   
+According to a study for Breast Cancer Care we have discovered that 42 of National Health Service NHS trusts say that they do not have the staff to assign individuals with limited breast cancer specialist nurse 3.
+It is the most important reason that can cause low survival rate of breast cancer all around the world.
+Due to lack of breast cancer specialist nurse or doctor it will cause late diagnosis of breast cancer lack of compliance to optimal detection or treatment and inequity of access to optimal treatment.
+Therefore breast cancer detection is developed to perform effectiveness in both abnormalities and classification breast detection.
+This is to assist and diagnose the breast cancer.  
+There are a lot of methods to obtain medical image such as Magnetic Resonance Imaging MRI mammography Xray and Ultrasound.
+Normally mammography and MRI are used for breast cancer diagnosis.
+Besides mammogram is a fast procedure which takes only about 20 minutes.
+The whole process is just an extremely small measure of radiation exposure from a mammogram which is safe than other treatment 4.
+Mammogram is chosen to solve the problem to increase the percent of women being treatment.  
+A new approach of image recognition system with breast cancer detection is proposed.
+This image recognition system is using convolutional neural network which is a type of artificial neural network designed and successfully used to recognize visual imagery.
+This system is able to classify and detect abnormalities in mammograms image.
+In general a mammogram image can be classified into malignant cancerous abnormality benign noncancerous abnormality or normal.   
+TensorFlow is  used for this model 5.
+This classifier tested data is obtained from miniMammographic
+Image Analysis Society miniMIAS database.
+This classifier has been modified through some methods such as pixel size of input image kernel size learning rate step number number of hidden layers and other.
+Some previously completed research was used to understand the types of breast cancer types of medical image used for classification types of neural network for image classification.
+Tensorflow tutorial on Convolutional Neural Network is official method that uses CNN.
+There is an example on CIFAR10 classification with various overfitting good training and performance boosting techniques 5.
+ImageNet Classification with Deep Convolutional Networks is designed to category machine learning and image classification 6.
+Many of techniques that use on model have references from 6.
+Consequently some works focus on Classification of breast cancer histology.
+The latest version of histology image classification by using CNN but histology image has its limitation which it is takes long time for the lab usage 7.
+Reference 8 is the most cited paper that use MRI image for classification by using ANN
+However mammogram image is the most suitable target for this work since it is cheap than other treatment and has very tiny radiation exposure from mammogram 8.
+Therefore many patients can have early checking if a faster mammograms image has been diagnosed.
+But mammogram also has its limitations for example some not clearly cancer cannot be scanned.   
+Some previously completed paper had used different types of neural network for classification mammogram image in breast cancer.
+Reference 9 is for the prediction of breast cancer by using artificial neural networks for classification and prediction 9.
+The wavelet neural network is employed for breast cancer diagnosis 10.
+Both neural networks are designed for general decision making purpose so both of them need to setup many parameters than CNN which is designed for purpose recognize visual imagery.
+Same number of hidden layer standard neural networks working on processing visual imagery need have 3x106 parameters.
+But for CNN it only needs around 600 parameters for processing visual imagery.  
+Reference 11 suggested a mammogram image detection using CNN.
+But the accuracy percentage is too low for a medical side solution which is around 60 for all classes detection 75 for only masses class and 100 for only calcification.
+Except only calcification argument all argument and mass only argument can further be improved the accuracy to get a better performance 11.
+METHODOLOGY A. Dataset
+Image Analysis Society miniMIAS database of mammograms image has been used as experiments target 12 miniMIAS is a database that reduces the size of the image by changing original image from 50 micron pixel edge to 200 micron pixel edge.
+There are 322 grayscale mammograms
+161 pair of patient with dimension of 1024 x1024 pixels.  
+Fig. 1.   
+Mammogram image with labelled data  
+Every data has labelled with character of background tissue and class of abnormality.
+Another information that given for abnormalities data is the severity of abnormality that present such as benign or malignant x and y coordinates for centre of abnormality and the abnormality radius measurement of pixels form.
+Fig. 1 is a mammogram image with labeled data explanation.  
+B. Image
+The raw data pixel size is too large.
+Huge segment of time is spent to adjust the input data for the classifier.
+Accordingly most breast cancer tissue size is less than 20 percent from a 1024 x1024 pixel raw data so it will affect the accuracy of the classifier performance and computation time.
+For a large pixels data as input of CNN classifier it will spend a lot of computation time for every not necessary information or not important noise.
+At the same time it also will affect the last result for the classifier.  
+In order to get only the important data abnormality tissue is cropped and used in the CNN classifier.
+Fig. 2 shows examples of benign tissue.
+Fig. 3 shows example of malignant tissue.
+These images are cropped out by using miniMIAS with the given X Y coordinate and radius from the center point after cropped resize it to 48 x 48 for uniform dimension as input of CNN classifier.  
+Fig. 2.  
+Benign images before training Fig. 3.  
+Malignant tissues before training   Fig. 4.  
+Normal tissues before training  Fig.
+4 shows the example of cropped normal tissue which is randomly cropped in order to make the CNN to classify smart which can identity normal patient also.
+Every image has been cropped at random spot at uniform dimension 48 pixel x 48 pixel.    
+To increase the accuracy of the model we has subsampled the dataset by using image transformations.
+Horizontally reflected version for every rotation has also added to the dataset for train the system not only recognizes the fix position but also can detect the abnormality smartly.  
+There are some abnormality tissues which are too close to limitation of mammograms such as examples shown in Fig. 5.
+When cropped out the image by giving labelled position and radius it will has an blank area which is limitation area for mammogram but the back blank may effect to the result of classifier.
+These types of data have been removed from the dataset for better accuracy.     
+Fig. 5.  
+Examples of bad train dataset  C. TensorFlow  
+TensorFlow library has been selected as model for the Machine Learning framework.
+Compare to other Machine Learning framework TensorFlow is support Window system without install any other dependent.
+Most popular frames like caffe still not supporting Window system.
+These frameworks all designed for Linux system.
+TensorFlow API r1.3 has been used on BCDCNN.
+It has a new estimator which updated on March 2017 estimated the CNN by training data evaluated data and predict the data without using dependent resource.  
+D. Convolutional Neural Network  
+Convolutional neural Network is made up of neurons that have learnable weights and biases.
+Each neuron receives some inputs.
+The whole network still expresses a single differentiable score function from the raw image pixels on one end to class scores at the other.    
+Convolutional Neural Networks take advantage of the fact that the input consists of images and they constrain the architecture in a more sensible way.
+In particular unlike a regular Neural Network the layers of a CNN have neurons arranged in 3 dimensions width height depth as shown in Fig. 6.  
+Fig. 6.  
+A Convolutional Neural Network neuron arrangement 14  
+A convolutional Neural Networks is a combination of many types of layers.
+As BCDCNN method there are included input layer 2 hidden layer and output layer.
+Input layer is the image data that we input by pixel.
+In this model grayscale mammograms as the input
+so it will have 48 x48 x1 input data for the CNN.   
+In hidden layer there are many layers included such as convolutional layer rectified linear unit ReLU layer Pooling layer Fullyconnected Dense layer.
+Simple explanation for hidden layer is shown in Fig. 7.  
+Fig. 7.  
+Convolutional Neural Network process   
+Convolutional layers applied specified number of convolution filters to the image.
+For each subregion the layer performs a set of mathematical operations to produce a single value in the output feature map as shown in Fig.7.
+Convolutional layers then typically apply a ReLU activation function to the output to introduce nonlinearities into the model.
+BCDCNN model has an input of 48 x 48 matrix and filter it into 32 features image by using kernel size of 5x5 filter with ReLU activation as Fig. 8.  
+Fig. 8.  
+Convolution matrix with a 3x3 kernel 13   Fig. 9.  
+Pooling layers downsamples the image spatially.
+A 2x2 filter max pooling example is shown in Fig.
+It will then move 2 pixels to do another filter when we are given a stride value of 2.
+Purpose of this layer is to decrease the processing time.   
+Fig. 10.  
+Pooling layer in Convolutional neural network 14   Same with other CNN model BCDCNN uses back propagation for update weight for latest their closer value.
+When training the data every time new image passes through the layer and a loss data will produce when comparing it out with expected output.
+By using this error the model can update the network to improve it accuracy.    
+Last is Fully Connected Layers
+This layer is a decision making layer.
+In this classifier dense layer connected last hidden layer 7  7  64 into a 1024 node.
+Every node in layer will connect every node in the logits layer.
+In our model the logits layer will have 3 types of possible output which is 0 for normal 1 for benign and 2 for malignant.    
+There are many parameters and methods to improve a CNN model such as increase the data size change on the training step change on the learning rate increase the pixel of the data for input layer increase the hidden layer and feature number.
+But model will be overfitting if getting too high learning rate and training step.
+There will make the model not flexible to be tested as a new input data.  
+As comparison a regular Neural Network that uses to process our model data has 48481 2304 weight parameters.
+For CNN model with a 32 feature map it will only has 32 unique set weight parameters 14.    
+three types of version have been created.
+Version 1 is a Full Classification Example with ConvNet on Kaggle which classifies a batch of image into cat and dog 15.
+It uses whole image as input.
+But the predicted outputs are wrong when comparing without labeled data set for a medical side research.
+Version 2 is to follow the TensorFlow official guideline to develop a CNN model and scale down the whole image as the input data.
+However the true positive and true negative have been confirmed by given label to all input data when training and evaluation are conducted.
+The model will follow the label to train the classes.
+When evaluation is conducted it will make a prediction on an image and compare it to given label.
+But once we use whole mammogram images as input the size of breast cancer tissue is small than 20 from whole image
+so it will make the model more confusing the target to be classification.
+In this version we only get a very low accuracy.   
+Version 3 which is the current version.
+The model uses TensorFlow official guideline but the input data is the preprocessing data.
+The true positive and true negative have remained high due to given label to be tested and accuracy was increase to 0.827
+This model uses 48x48 as input convolution layer with kernel size 5x5 filter pooling layer with pool size 2x2 filter and strides of 2 learning rate with 0.003 training step with 20000.  
+TABLE I. COMPARISON BETWEEN THREE VERSION  Version Version 1 Version 2 Version 3
+385 146 Calculations False Positive Rate 64.57 45.64 17.27 False Negative Rate 64.68 45.68 17.32 Sensitivity 35.32 54.32 82.68 Specificity 35.43 54.36 82.73 Accuracy 38.45 54.35 82.71   Fig. 11.  
+Compare to existing CNN method on mammogram   
+Compared BCDCNN model with existing CNN Zhou et al paper
+a comparison figure has shown in Fig.
+It is our target to improve the accuracy in all categories.
+Except calcification argument was 100 in both paper mass and all argument have been increased from 0.75 to 0.8585 and 0.608974 to 0.8271 accuracy.  
+It may affect the balancing of the classifier to class the input in to 3 categories equally.
+It is found that a mass only has around double of the data compare between benign and malignant This may be the reason to cause the classifier confusing for BCDCNN model.
+Calcification only model has balance data between benign and malignant.
+This may be the reason to make classifier easier to form good model to classifier the input data.   
+More mammograms need to train a better model but it is 00.20.40.60.811.2All
+argumentCalcification argumentCompare to existing CNN method on mammogramBCDCNNMCCNNless open source research data.
+Besides that my knowledge on breast cancer may cause limitation of BCDCNN model.
+All of the breast cancer location or accuracy follow the given labelled data we are difficult to identity every tissue and cell from mammogram ourself.
+There are difficult to set a perfect setting of parameters.
+It will cause around a day for 1 run but need to restart the training once changing the parameter.
+It is consumed much of time for the project.
+If we want to train faster more hidden layer or more input pixel higher performance processer are required.  
+The new version of breast cancer detection by using Convolutional Neural Network has been proposed and developed.
+This system classifies mammogram images into 3 categories normal benign and malignant with high rate than 80.
+The system which can assist and help the doctor or specialist nurse to speed diagnosed the mammograms to cover shortage of specialist or time handling diagnosed every person can do a simple diagnosed though the system.     
+The method starts with preprocessing the mammograms to an image that can be easily recognize by a computer.
+The CNN model will find out different between every labelled data by using many types of feature getting from the image.
+After 20000 times of comparison it will come out a model that able to classification input image into closer possible output.
+The model only needs to train once.
+For the evaluation on predict images it only takes few minutes to complete without times limit except any parameter that needs to change.
+Then the model need to retrain for few day.    
+In conclusion the breast cancer detection by using Convolutional Neural Network had been successfully developed and tested with 322 of mammogram images.
+This method provides a fast diagnosis time and high accuracy system.  
+v1.1 Cancer Incidence and Mortality Worldwide IARC CancerBase
+ﬁU.S. Breast Cancer Statisticsﬂ
+Breastcancer.org 120
+Available httpwww.breastcancer.org.
+3 Breast Cancer
+Care.ﬁThree quarters of NHS Trusts and Health Boards say not enough care for incurable breast cancer patientsﬂ breast cancer care pink ribbon 25.
+Sophie Softley Pierce PR Manager Breast Cancer Care.
+Available httpswww.breastcancercare.org.ukaboutusmediapressreleasesthreequartersnhstrustshealthboardssaynotenoughcareincurable
+4 Breast Cancer.
+ﬁMammography Benefits Risks What You Need to Knowﬂ Breastcancer.org Susan Greenstein Orel M.D .
+Available httpwww.breastcancer.orgsymptomstestingtypesmammogramsbenefitsrisks
+ﬁImagenet classification with deep convolutional neural networks.ﬂ
+In Advances in neural information processing systems  pp.10971105 2012.
+ﬁClassification of breast cancer histology images using Convolutional Neural Networksﬂ PloS
+8 J. Khan J. S. Wei M. Ringner L. H. Saal M. Ladanyi F. Westermann and P.S. Meltzer ﬁ Classification and diagnostic prediction of cancers using gene expression profiling and artificial neural networksﬂ Nature medicinevol.
+9 I. Saratas Prediction of breast cancer using artificial neural networks Journal of Medical Systems vol.
+Singh Breast Cancer Diagnosis
+An Intelligent Detection System Using Wavelet Neural Network Proceedings of the International Conference on Frontiers of Intelligent Computing Theory and Applications FICTA
+Gregory  ﬁMammogram Classification
+Using Convolutional Neural Networksﬂ Vaialable httpehnree.github.iodocumentspapersmammogramconvnet.pdf
+The mammographic image analysis society digital mammogram databaseﬂ In Exerpta Medica.
+13 H. H. Wang and  B. Raj ﬁA Survey Time Travel in Deep Learning Space
+An Introduction to Deep Learning Models and How Deep Learning Models Evolved from the Initial Ideasﬂ CoRR  arXiv1510.04781 2015.
+CS231n Convolutional Neural Networks for Visual Recognition.
+Full Classification Example with ConvNet  Retrieved from httpswww.kaggle.comsentdexfullclassificationexamplewithconvnet.

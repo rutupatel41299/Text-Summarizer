@@ -1,0 +1,99 @@
+THE SCHOOL OF
+Artiﬁcial Intelligence 
+Learning Map
+AI is one of the fastest-growing and most transformational technologies of our 
+time, with 2.3 million new jobs opening up by 2020. Spend 5 to 10 hours per 
+week to advance your career.
+
+AI Product 
+Manager
+
+AI Programming 
+
+with Python
+
+Time to Completion
+
+Prerequisites
+
+Intro to Machine 
+Intro to Machine 
+
+Learning with 
+
+Learning
+PyTorch
+
+Intro to Machine 
+
+Learning with 
+TensorFlow
+
+AI for Trading 
+
+Deep Learning
+
+Machine Learning 
+
+Engineer
+
+Data Structures 
+and Algorithms
+
+Deep 
+
+Reinforcement 
+
+Learning
+
+Natural Language 
+
+Processing  
+
+AI for Healthcare  
+
+Computer Vision
+
+Artiﬁcial 
+Intelligence
+
+Intel® Edge AI for 
+IoT Developers
+
+R
+E
+N
+N
+
+I
+
+G
+E
+B
+
+E
+T
+A
+
+I
+
+D
+E
+M
+R
+E
+T
+N
+
+I
+
+D
+E
+C
+N
+A
+V
+D
+A
+
+4 Months at 10-15 hrs/weekPython, Probability, Machine Learning & Deep Learning3 Months at 10-15 hrs/weekPython, Statistics, Machine Learning & Deep Learning3 Months at 10 hrs/weekBasic Algebra & Programming6 Months at 10 hrs/weekPython & Mathematics4 Months at 12 hrs/weekBasic Python3 Months at 10 hrs/weekIntermediate Python, and Machine Learning Algorithms4 Months at 10 hrs/weekPython & Basic Algebra3 Months at 10 hrs/weekPython3 Months at 12-15 hrs/weekAlgebra, Calculus, Statistics, & Python3 Months at 10 hrs/weekIntermediate Python, and Experience with Deep Learning, Command Line, and OpenCV2 Months at 5-10 hrs/weekNo Experience Required3 Months at 10 hrs/weekPython3 Months at 10 hrs/weekPython3 Months at 10-15 hrs/weekPython, Statistics, Machine Learning & Deep Learning4 Months at 15 hrs/weekIntermediate Python, Experience with Machine Learning 

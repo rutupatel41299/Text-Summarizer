@@ -1,0 +1,2 @@
+The term “machine learning” was coined by Arthur Samuel a computer scientist at IBM and a pioneer in AI and computer gaming.
+Samuel designed a computer program for playing checkers.

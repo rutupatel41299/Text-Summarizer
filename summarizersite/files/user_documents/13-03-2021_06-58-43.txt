@@ -1,0 +1,6 @@
+Natural Language Processing (NLP) is basically how you can teach machines to understand human languages and extract meaning from text.
+
+Language as a structured medium of communication is what separates us human beings from animals. We are surrounded by text data all the time sourced from books, emails, blogs, social media posts, news and more. 
+
+Natural Language Processing is expected to be worth 30 Billion USD by 2024 with the past few years seeing immense improvements in terms of how well it is solving industry problems at scale. 
+

@@ -1,0 +1,32 @@
+AI is one of the fastest-growing and most transformational technologies of our 
+time, with 2.3 million new jobs opening up by 2020. Spend 5 to 10 hours per 
+week to advance your career.
+Arti!cial Intelligence Learning Map
+THE SCHOOL OFDeep Reinforcement 
+LearningComputer Vision
+AI Programming 
+with Python
+AI for Trading 
+Deep LearningMachine Learning EngineerData Structures 
+and Algorithms
+Intro to Machine 
+LearningINTERMEDIAT
+EADVANCE
+DArti
+!
+cial 
+Intelligence
+Intel¨ Edge AI for 
+IoT Developers
+AI Product 
+ManagerIntro to Machine 
+Learning with 
+PyTorch
+Intro to Machine 
+Learning with 
+TensorFlow
+Time to Completion
+Prerequisites
+BEGINNERNatural Language 
+Processing  
+AI for Healthcare  

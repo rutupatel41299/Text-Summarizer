@@ -1,0 +1,70 @@
+                                                                    
+Assay of boric acid
+ 
+ 
+AIM
+: To perform the assay of the given sample of boric acid.
+ 
+APPARATUS:
+ 
+burette, pipette, conical flask, volumetric flask, measuring cylinder etc.
+ 
+CHEMICALS
+: boric acid, glycerol, phenolphthalein, 1N sodium hydroxide solution, 1 N   
+ 
+                         
+oxalic acid.
+ 
+PRINCIPLE:
+ 
+The assay of boric acid is based upon alkalimetry method. Being a very weak acid, it 
+cannot be directly titrated accurately with 
+strong alkali. When it is dissolved in a mixture of water 
+and glycerol it behaves like a strong monobasic acid and then it can be titrated with a standard 
+solution of alkali using phenolphthalein as an indicator.
+ 
+ 
+PROCEDURE
+: 
+ 
+1. For standardization of sodi
+umhydroxide: Into a conical flask pipette out exactly10 ml of 0.1 N 
+oxalic acid and add one or two drops of phenolphthalein indicator. Titrate the solution against
+ 
+sodium hydroxide solution until a permanent pink color is obtained. Repeat the titration to 
+get 
+concurrent values. 
+ 
+2. For assay: weigh accurately about 2 gm of boric acid and dissolve in a mixture of 50 ml of water 
+and 100 ml of glycerol previously neutralized to phenolphthalein solution. Titrate the contents of the 
+flask with 1 N sodium hydroxi
+de solution using phenolphthalein as indicator. Repeat the titration for 
+concurrent values.
+ 
+ 
+I.P. FACTOR
+:  Each ml of 1 N NaOH
+ 
+is equivalent to 0.016183 g of boric acid.
+ 
+FORMULA: 
+ 
+ 
+Percent purity of boric acid = 
+Vol. of 
+NaOH
+ 
+x I.P. Factor x 100 x N of 
+NaOH
+ 
+ 
+(actual)
+ 
+                                                     
+Weight of boric acid x N of NaOH (exp)
+ 
+ 
+RESULT
+
+ 
+ 

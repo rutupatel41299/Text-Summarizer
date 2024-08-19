@@ -1,0 +1,3 @@
+AI is one of the fastestgrowing and most transformational technologies of our time with 2.3 million new jobs opening up by 2020.
+VisionAI Programming with PythonAI for Trading
+Deep LearningMachine Learning EngineerData Structures and AlgorithmsIntro to Machine LearningINTERMEDIATEADVANCEDArticial IntelligenceIntel¨ Edge AI for IoT DevelopersAI Product ManagerIntro to Machine Learning with PyTorchIntro to Machine Learning with TensorFlowTime to CompletionPrerequisitesBEGINNERNatural Language Processing  AI for Healthcare  

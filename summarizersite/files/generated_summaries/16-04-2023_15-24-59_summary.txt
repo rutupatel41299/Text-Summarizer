@@ -1,0 +1,5 @@
+slipups critics say are merely surface lapsessignsthat the softwares developers were too rushed or too careless tofix obvious defects.
+The real problems lie in softwares basicdesign according to R. A. Downes of Radsoft a software consulting firm.
+Aid for Faulty CodeSoftware quality has been so bad for so longsome engineers argue that the only solutionsare litigation and legislation.
+Engineers whodevelop code dont look at software in thesame way as the system administrators whomaintain it the marketers who sell it or theend users who put it to work.
+According to AmitabhSrivastava of Microsoft improvementswill also come from new tools that meticulously tally changes in software code allowing testers to focus on heavily rewritten sections that may contain moreerrors.

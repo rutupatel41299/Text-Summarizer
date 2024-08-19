@@ -1,0 +1,3 @@
+Visual analytics is the science of analytical reasoning facilitated by interactive visual interfaces.2
+intractable.3 Visual analytics advances science and technology developments in analytical reasoning interaction data transformations and representations for computation and visualization analytic reporting and technology transition.4
+As a research agenda visual analytics brings together several scientific and technical communities from computer science information visualization cognitive and perceptual sciences interactive design graphic design and social sciences.
