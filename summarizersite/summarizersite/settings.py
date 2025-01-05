@@ -118,8 +118,8 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'learn.code.630@gmail.com'
-EMAIL_HOST_PASSWORD = 'learn321pmj'
+EMAIL_HOST_USER = 'write email id here'
+EMAIL_HOST_PASSWORD = 'write pwd here'
 
 
 # Internationalization
